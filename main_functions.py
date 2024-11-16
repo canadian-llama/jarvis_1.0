@@ -9,6 +9,14 @@ import secondary_functions as sf
 import word_list as wl
 
 """
+this is a function to get api_key from a .txt file to avoid error whilst pushing to github
+"""
+def get_api_key():
+    with open ('api.txt', "r") as file:
+        api_key = file.read().strip()
+        return api_key
+
+"""
 this function takes user query and tokenizes it thereby returning a list.
 """
 
@@ -56,7 +64,7 @@ This uses the openai key to perform other functions.
 
 
 def use_openai_api(query):
-    openai.api_key = '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'
+    openai.api_key = get_api_key()
     completion = openai.ChatCompletion.create(model='gpt-3.5-turbo', messages=[{
         'role': 'user', 'content': query
     }])
