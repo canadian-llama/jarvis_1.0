@@ -74,7 +74,6 @@ def use_openai_api(query):
 
 """This function addresses various possible outcome of a query and returns the expected output."""
 
-
 def determine_output(query):
     query = tokenize_user_query(query)
     print(query)
